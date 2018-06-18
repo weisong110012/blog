@@ -19,6 +19,7 @@
     "koa-static": "^4.0.3",
     "mysql": "^2.15.0",
     "request": "^2.87.0",
+    "socket.io": "^2.1.1",
     "supervisor": "^0.12.0"
   }
 }

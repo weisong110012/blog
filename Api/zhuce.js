@@ -16,9 +16,9 @@ var zhuce=  async(cxt,next)=>{
     var account=body.zhuceInfo.account;
     var password=body.zhuceInfo.password;
     var name=body.zhuceInfo.name;
-    if((/\w{7,20}/.test(account))&&(/\w{6,20}/.test(account))&&(/\w{1,}/.test(name))){
+    if((/\w{7,20}/.test(account))&&(/\w{6,20}/.test(password))&&(/[\s\S]{1,}/.test(name))){
         var sessionId=session(20)
-        var data= await mysql.insert('users',{account:account,password:password,session:sessionId,name:name}).then(async data =>{
+        var data= await mysql.insert('users',{authType:2,account:account,password:password,session:sessionId,name:name}).then(async data =>{
             cxt.cookies.set('session',sessionId);
             cxt.response.body={status:1,userInfo:body.zhuceInfo}
         })
